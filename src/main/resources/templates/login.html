@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <title th:text="${pageTitle">Login</title>
+</head>
+<body>
+<h1 th:text="${pageTitle}">Tela de Login</h1>
+<form method="post"
+      th:action="@{/login">
+    <label for="username">Usu ́ario</label>
+    <input id="username" th:field="*{username}" type="text" placeholder="Seu usu ́ario">
+    <label for="password">Senha</label>
+    <input id="password" th:field="*{password}" type="password" placeholder="Sua senha">
+    <button type="submti">Entrar</button>
+</form>
+<p><a th:href="@{/}">Voltar ao painel</a></p>
+</body>
+</html>
