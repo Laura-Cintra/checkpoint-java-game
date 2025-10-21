@@ -3,26 +3,32 @@ package fiap.tdspj.com.br.gameChallenge.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-// import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-@org.springframework.web.bind.annotation.RestController
+
+@Controller
 public class GameController {
+
     private static final List<String> store = new ArrayList<>();
-    @GetMappin("/")
+
+    @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("now", LocalDateTime.now());
         model.addAttribute("itens", List.of("Relatório", "Métricas", "Exportação"));
-        return "dashbord";
+        model.addAttribute("pageTitle", "Dashboard");
+        return "dashboard";
     }
+
     @GetMapping("/login")
     public String login(Model model) {
+        model.addAttribute("pageTitle", "Login");
         model.addAttribute("loginMessage", "Bem-vindo!");
         return "login";
     }
-    @GetMapping("/do-something")
+
+    @PostMapping("/do-something")
     public String doSomething(Model model) {
         store.add("Novo registro " + LocalDateTime.now());
         model.addAttribute("message", "Feito com sucesso!");
