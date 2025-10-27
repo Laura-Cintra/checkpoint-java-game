@@ -22,11 +22,20 @@ public class GameController {
     }
 
     @GetMapping("/login")
-    public String login(Model model) {
+    public String login(Model model, String error, String logout) {
         model.addAttribute("pageTitle", "Login");
-        model.addAttribute("loginMessage", "Bem-vindo!");
+
+        if (error != null) {
+            model.addAttribute("loginMessageError", "Usuário ou senha inválidos!");
+        } else if (logout != null) {
+            model.addAttribute("loginMessage", "Logout realizado com sucesso!");
+        } else {
+            model.addAttribute("loginMessage", "Bem-vindo!");
+        }
+
         return "login";
     }
+
 
     @PostMapping("/do-something")
     public String doSomething(Model model) {

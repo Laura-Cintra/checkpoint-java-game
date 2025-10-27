@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title th:text="${pageTitle}">Dashboard</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <h1 th:text="${pageTitle}">Dashboard</h1>
+    <header>
+        <h1 th:text="${pageTitle}">Dashboard</h1>
+        <div class="logout" sec:authorize="isAuthenticated()">
+            <form th:action="@{/logout}" method="post">
+                <button type="submit">⎋ Logout</button>
+            </form>
+        </div>
+    </header>
+
     <p>
         Agora é:
         <strong th:text="${now.toString()}">2025-10-08T12:34</strong>

@@ -6,18 +6,24 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-    <h1 th:text="${pageTitle}">Tela de Login</h1>
+<h1 th:text="${pageTitle}">Tela de Login</h1>
 
-    <form method="post" th:action="@{/do-something}">
-        <label for="username">Usuário</label>
-        <input id="username" name="username" type="text" placeholder="Seu usuário">
+<p th:if="${loginMessageError}" th:text="${loginMessageError}"
+   style="color: red; font-weight: bold;"></p>
 
-        <label for="password">Senha</label>
-        <input id="password" name="password" type="password" placeholder="Sua senha">
+<p th:if="${loginMessage}" th:text="${loginMessage}"
+   style="color: blue; font-weight: bold;"></p>
 
-        <button type="submit">Entrar</button>
-    </form>
+<form method="post" th:action="@{/login}">
+    <label for="username">Usuário</label>
+    <input id="username" name="username" type="text" placeholder="Seu usuário">
 
-    <p><a th:href="@{/}">Voltar ao painel</a></p>
+    <label for="password">Senha</label>
+    <input id="password" name="password" type="password" placeholder="Sua senha">
+
+    <button type="submit">Entrar</button>
+</form>
+
+<p><a th:href="@{/}">Voltar ao painel</a></p>
 </body>
 </html>
