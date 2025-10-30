@@ -25,7 +25,8 @@ A aplicação possui duas páginas principais:
     - Logout realizado com sucesso
 
 ### 🚪 Logout (`/logout`)
-- Disponível apenas para usuários autenticados.
+- Disponível apenas para usuários autenticados, uma chamada via POST realizada por um botão na tela de dashboard.
+- Serve para encerrar a sessão de usuários autenticados.
 - Após o logout, o usuário é redirecionado para `/login?logout`.
 
 ---
